@@ -16,6 +16,7 @@ gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem "cocoon"
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

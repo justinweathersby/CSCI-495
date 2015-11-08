@@ -1,0 +1,43 @@
+
+
+<div class="dataTable_wrapper">
+  <table class="table table-striped table-bordered table-hover">
+  <thead>
+      <tr>
+        <th>School</th>
+        <th>Course Id</th>
+        <th>Title</th>
+        <th>Grade</th>
+        <th>Remove</th>
+      </tr>
+  </thead>
+  <tbody>
+    <div class="form-group">
+    <tr id="#{f.object.id}_input">
+      <td>
+        <%= f.collection_select(:course_id, Course.select(:school).distinct, :id, :school, {}, {:class=>'form-control', :id=>"#{f.object.id}_school_select"}) %>
+      </td>
+      <td>
+        <%= f.collection_select(:course_id, Course.all, :id, :number, {}, {:class=>'form-control', :id=>"#{f.object.id}_number_select"})  %>
+      </td>
+      <td>
+        <input type="text" class="form-control" id="#{f.object.id}_course_title" placeholder="" disabled="disabled">
+      </td>
+      <td>
+        <%= f.text_field :grade, class:"form-control", placeholder: "A" %>
+      </td>
+      <td><%= link_to_remove_association "Remove", f %></td>
+    </tr>
+    </div>
+  </tbody>
+</table>
+<hr/>
+</div>
+
+<script>
+$("##{f.object.id}_course_title").bind('keyup mouseup', function () {
+var school = parseInt($('##{f.object.id}_school_select').val());
+var number = parseInt($('##{f.object.id}_number_select').val());
+// $('##{f.object.id}_course_title').val(C);
+});
+</script>
