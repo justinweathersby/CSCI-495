@@ -1,19 +1,141 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Student</h4>
+                </div>
+                <div class="panel-body">
+                  <p>
+                    <strong>ID:</strong>
+                    <%= @student.id %>
+                  </p>
+                  <p>
+                    <strong>First Name:</strong>
+                    <%= @student.fname %>
+                  </p>
 
-<p>
-  <strong>Fname:</strong>
-  <%= @student.fname %>
-</p>
+                  <p>
+                    <strong>Last Name:</strong>
+                    <%= @student.lname %>
+                  </p>
 
-<p>
-  <strong>Lname:</strong>
-  <%= @student.lname %>
-</p>
+                  <p>
+                    <strong>Email:</strong>
+                    <%= @student.email %>
+                  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
+                  <hr/>
+                  <%= link_to "Print Student Transcript", lookup_path(), class:"btn btn-primary btn-block", style: "color:#fff" %>
+                  <hr/>
+                  <%= link_to "Lookup A New Student", lookup_path(), class:"btn btn-primary btn-block", style: "color:#fff" %>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+            </div>
+          </div>
+        </div>
+        <!-- **************************************************************************************** -->
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Required Courses</h4>
+                </div>
+                  <div class="panel-body">
+                      <div class="dataTable_wrapper">
+                          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              <thead>
+                                  <tr>
+                                    <th><%= link_to "Course Id", :sort => "course_id"%></th>
+                                    <th><%= link_to "Title", :sort => "title"%></th>
+                                    <th><%= link_to "Hours", :sort => "hours"%></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <% if (@remaining_courses != nil) %>
+                                <% @remaining_courses.each do |course| %>
+                                  <tr>
+                                    <td><%= Course.find(course.id).school %></td>
+                                    <td><%= Course.find(course.id).title %></td>
+                                    <td><%= course.hours %></td>
+                                  </tr>
+                                <% end %>
+                                <% else %>
+                                <tr>
+                                  <td colspan="4">
+                                    <p class="text-center text-muted">
+                                      No Courses Found...
+                                    </p>
+                                  </td>
+                                </tr>
+                                <% end %>
+                              </tbody>
+                          </table>
+                          <%= will_paginate @remaining_courses, renderer: BootstrapPagination::Rails %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        <!-- *********************************************************************************************** -->
+        <div class="row">
+          <div class="col-md-4">
+
+            </div>
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <div class="pull-right">
+
+
+                    <form class="form-inline text-center">
+                      <div class="form-group">
+                      <label for="exampleInputName2">Total Credits</label>
+                      <input type="text" class="form-control"  placeholder="3" disabled="disabled" style="max-width:50px">
+                      </div>
+                      <div class="form-group">
+                      <label for="exampleInputEmail2">GPA</label>
+                      <input type="email" class="form-control" placeholder="4.0" disabled="disabled" style="max-width:50px">
+                      </div>
+                    </form>
+                  </div>
+                  <h4>Completed Courses</h4>
+                </div>
+                <div class="panel-body">
+
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                  <th>Course Id</th>
+                                  <th>Title</th>
+                                  <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% if @completed_courses.present? %>
+                              <% @completed_courses.each do |course| %>
+                                <tr>
+                                  <td><%= Course.find(course.id).school %></td>
+                                  <td><%= Course.find(course.id).title %></td>
+                                  <td><%= course.grade %></td>
+                                </tr>
+                              <% end %>
+                              <% else %>
+                              <tr>
+                                <td colspan="4">
+                                  <p class="text-center text-muted">
+                                    No Courses Found...
+                                  </p>
+                                </td>
+                              </tr>
+                              <% end %>
+                            </tbody>
+                        </table>
+                        <%= will_paginate @completed_courses, renderer: BootstrapPagination::Rails %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- *********************************************************************************************** -->
+            </div>
+          </div>

@@ -1,1 +1,13 @@
-<h1>Hello World - Home</h1>
+<div class="well center-block" style="max-width: 400px;">
+  <%= link_to "Create Student File", lookup_path(), class:"btn btn-primary btn-lg btn-block", style: "color:#fff" %>
+  <p style="padding:4px; color:gray; text-align:center">
+    <i>
+      <%=link_to "Profile", lookup_path()%>
+      Start here if you are a STUDENT and need to input your completed classes.</i>
+  </p>
+  <hr/>
+  <%= link_to "Lookup Student File", lookup_path(), class:"btn btn-default btn-lg btn-block" %>
+  <p style="padding:4px; color:gray; text-align:center">
+    <i>Start here if you are FACULTY and need to print a student transcript.</i>
+  </p>
+</div>

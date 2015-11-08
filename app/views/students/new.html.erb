@@ -1,5 +1,87 @@
-<h1>New Student</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Student</h4>
+                </div>
+                <div class="panel-body">
+                  <%= form_for(@student) do |f| %>
+                    <% if @student.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-<%= render 'form' %>
+                        <ul>
+                        <% @student.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                    <div class="form-group">
+                      <%= f.text_field :fname, class:"form-control", placeholder:"First Name" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.text_field :lname, class:"form-control", placeholder:"Last Name" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.text_field :email, class:"form-control", placeholder:"Email" %>
+                    </div>
+                    <select class="form-control empty">
+                      <option value="" selected disabled>Emphasis</option>
+                      <option value="1">BBEAC</option>
+                    </select>
 
-<%= link_to 'Back', students_path %>
+                  <hr/>
+                  <%= f.submit "Submit Student Record", class:"btn btn-primary btn-block", style: "color:#fff" %>
+                  <hr/>
+                  <%= link_to "Cancel", root_path(), class:"btn btn-primary btn-block", style: "color:#fff" %>
+                  </div>
+                <% end %>
+
+            </div>
+          </div>
+
+        <!-- **************************************************************************************** -->
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Required Courses</h4>
+                </div>
+                  <div class="panel-body">
+                      <div class="dataTable_wrapper">
+                          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              <thead>
+                                  <tr>
+                                    <th><%= link_to "Course Id", :sort => "course_id"%></th>
+                                    <th><%= link_to "Title", :sort => "title"%></th>
+                                    <th><%= link_to "Hours", :sort => "hours"%></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <% if (@remaining_courses != nil) %>
+                                <% @remaining_courses.each do |course| %>
+                                  <tr>
+                                    <td><%= Course.find(course.id).school %></td>
+                                    <td><%= Course.find(course.id).title %></td>
+                                    <td><%= course.hours %></td>
+                                  </tr>
+                                <% end %>
+                                <% else %>
+                                <tr>
+                                  <td colspan="4">
+                                    <p class="text-center text-muted">
+                                      No Courses Found...
+                                    </p>
+                                  </td>
+                                </tr>
+                                <% end %>
+                              </tbody>
+                          </table>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+        </div>

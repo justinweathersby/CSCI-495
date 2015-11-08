@@ -11,9 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107203936) do
+ActiveRecord::Schema.define(version: 20151108070844) do
 
   create_table "completes", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "course_id"
+    t.string   "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151107203936) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "emphasis"
   end
 
 end

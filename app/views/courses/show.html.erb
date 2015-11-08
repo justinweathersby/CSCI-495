@@ -1,24 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @course.number %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @course.school %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
-
-<p>
-  <strong>Hours:</strong>
-  <%= @course.hours %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Title</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @course.school %></td>
+        <td><%= @course.title %></td>
+        <td><%= @course.hours %></td>
+        <td>
+          <%= link_to 'Edit', edit_course_path(@course) %> |
+          <%= link_to 'Back', courses_path %>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Csci495StudentRecords</title>
+  <title>CSCI-495</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body style="padding-bottom:20px;">
+<nav class="navbar navbar-default">
+  <%= link_to root_path do %>
+  <img src="/assets/csu_logo.png" class="center-block img-responsive" style="max-width:180px;padding:4px;"/>
+  <% end %>
+</nav>
+<div class="container-fluid">
+  <%= yield %>
+</div>
 
 </body>
+<footer class="footer navbar-fixed-bottom" style="background-color:white; padding-top:10px;">
+     <div class="container">
+       <p class="text-muted" style="text-align:center">
+       Copyright ©2015 Charleston Souther University Conputer Science 495 and Business 595 Group 3 All rights reserved.
+     </p>
+     </div>
+</footer>
 </html>

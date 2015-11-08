@@ -1,20 +1,33 @@
+require 'will_paginate/array'
+
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.search(params[:search])
   end
 
-  # GET /students/1
-  # GET /students/1.json
+
   def show
+    @remaining_courses = []
+    @completed_courses = []
+    Course.all.each do |course|
+      if !@student.completes.find_by(course_id: course.id)
+        @remaining_courses << course
+      end
+    end
+    # @sort_field = params[:sort]
+    # @remaining_courses.sort { |a,b| a.login_count <=> b.login_count }
+    @remaining_courses = @remaining_courses.paginate(:per_page =>8, :page => params[:page])
+    @completed_courses = @student.completes.paginate(:per_page =>8, :page =>1)
   end
 
   # GET /students/new
   def new
     @student = Student.new
+    @courses = Course.all
   end
 
   # GET /students/1/edit
