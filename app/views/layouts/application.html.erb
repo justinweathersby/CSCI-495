@@ -9,7 +9,8 @@
 <body style="padding-bottom:20px;">
 <nav class="navbar navbar-default">
   <%= link_to root_path do %>
-  <img src="/assets/csu_logo.png" class="center-block img-responsive" style="max-width:180px;padding:4px;"/>
+  <!-- <img src="csu_logo.png" class="center-block img-responsive" style="max-width:180px;padding:4px;"/> -->
+  <%= image_tag("csu_logo.png", :class=>"center-block img-responsive", :style=>"max-width:180px;padding:4px") %>
   <% end %>
 </nav>
 <div class="container-fluid">
