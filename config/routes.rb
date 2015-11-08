@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :completes
   resources :courses
-  resources :students
+  resources :students do
+    resource :completes
+  end
 
   root 'static_pages#home'
 
   get 'lookup' => 'static_pages#lookup'
+
+  get 'transcript/:id', to: 'students#transcript', as: 'transcript'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

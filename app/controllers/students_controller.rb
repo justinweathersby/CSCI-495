@@ -9,6 +9,17 @@ class StudentsController < ApplicationController
     @students = Student.search(params[:search])
   end
 
+  def transcript
+    @student = Student.find(params[:id])
+    @remaining_courses = []
+    @completed_courses = @student.completes
+    Course.all.each do |course|
+      if !@student.completes.find_by(course_id: course.id)
+        @remaining_courses << course
+      end
+    end
+  
+  end
 
   def show
     @remaining_courses = []

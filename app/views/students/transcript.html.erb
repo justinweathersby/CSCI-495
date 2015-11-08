@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Student</h4>
+                <div class="panel-heading text-center">
+                    <h4 style="font-variant:small-caps">Bachelor of Science: Computer Science</h4>
                 </div>
                 <div class="panel-body">
                   <p>
@@ -25,21 +25,14 @@
                     <%= @student.email %>
                   </p>
 
-                  <p>
-                    <strong>Emphasis:</strong>
-                    <%= @student.emphasis ||= "Bachelor of Science: Computer Science" %>
-                  </p>
-
-                  <hr/>
-                  <%= link_to "Print Student Transcript", transcript_path(@student), class:"btn btn-primary btn-block", style: "color:#fff" %>
-                  <hr/>
-                  <%= link_to "Lookup A New Student", lookup_path(), class:"btn btn-primary btn-block", style: "color:#fff" %>
 
             </div>
           </div>
         </div>
+      </div>
         <!-- **************************************************************************************** -->
-        <div class="col-lg-8">
+      <div class="row">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>Required Courses</h4>
@@ -65,18 +58,10 @@
                                     <td><%= course.hours %></td>
                                   </tr>
                                 <% end %>
-                                <% else %>
-                                <tr>
-                                  <td colspan="4">
-                                    <p class="text-center text-muted">
-                                      No Courses Found...
-                                    </p>
-                                  </td>
-                                </tr>
                                 <% end %>
                               </tbody>
                           </table>
-                          <%= will_paginate @remaining_courses, renderer: BootstrapPagination::Rails %>
+
                       </div>
                     </div>
                   </div>
@@ -84,10 +69,7 @@
         </div>
         <!-- *********************************************************************************************** -->
         <div class="row">
-          <div class="col-md-4">
-
-            </div>
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
 
@@ -140,7 +122,7 @@
                               <% end %>
                             </tbody>
                         </table>
-                        <%= will_paginate @completed_courses, renderer: BootstrapPagination::Rails %>
+
                     </div>
                   </div>
                 </div>
