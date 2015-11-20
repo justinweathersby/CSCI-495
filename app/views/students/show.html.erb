@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <!-- <div class="row"> -->
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -27,7 +27,7 @@
 
                   <p>
                     <strong>Emphasis:</strong>
-                    <%= @student.emphasis ||= "Bachelor of Science: Computer Science" %>
+                    <%= @student.emphasis ||= "Marketing" %>
                   </p>
 
                   <hr/>
@@ -42,7 +42,7 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Required Courses</h4>
+                    <h4>Liberal Arts Core</h4>
                 </div>
                   <div class="panel-body">
                       <div class="dataTable_wrapper">
@@ -53,98 +53,420 @@
                                     <th><%= link_to "Course Id", :sort => "course_id"%></th>
                                     <th><%= link_to "Title", :sort => "title"%></th>
                                     <th><%= link_to "Hours", :sort => "hours"%></th>
+                                      <th>Grade</th>
+                                    <th class="text-center"><%= link_to "Completed", :sort => "hours"%></th>
                                   </tr>
                               </thead>
                               <tbody>
-                                <% if (@remaining_courses != nil) %>
-                                <% @remaining_courses.each do |course| %>
+
                                   <tr>
-                                    <td><%= Course.find(course.id).school %></td>
-                                    <td><%= Course.find(course.id).number %></td>
-                                    <td><%= Course.find(course.id).title %></td>
-                                    <td><%= course.hours %></td>
+                                    <td>MATH</td>
+                                    <td>110</td>
+                                    <td>Extended College Algebra or higher</td>
+                                    <td>3</td>
+                                    <td>
+                                      <select class="form-control">
+                                        <option value="one">A</option>
+                                        <option value="two">B</option>
+                                        <option value="three">C</option>
+                                        <option value="four">D</option>
+                                        <option value="five">F</option>
+                                      </select>
+                                    </td>
+                                    <td class="text-center"><input type="checkbox" aria-label="..."></td>
                                   </tr>
-                                <% end %>
-                                <% else %>
+
+                                  <tr>
+                                    <td>ECON</td>
+                                    <td>211</td>
+                                    <td>Principles of Microeconomics </td>
+                                    <td>3</td>
+                                    <td>
+                                      <select class="form-control">
+                                        <option value="one">A</option>
+                                        <option value="two">B</option>
+                                        <option value="three">C</option>
+                                        <option value="four">D</option>
+                                        <option value="five">F</option>
+                                      </select>
+                                    </td>
+                                    <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                  </tr>
+
+
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
+        <!-- </div> -->
+        <!-- *********************************************************************************************** -->
+        <!-- <div class="row">
+          <div class="col-md-4">
+
+            </div>
+        <div class="col-lg-8"> -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>BBA Core</h4>
+                </div>
+                  <div class="panel-body">
+                      <div class="dataTable_wrapper">
+                          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              <thead>
+                                  <tr>
+                                    <th><%= link_to "School", :sort => "course_id"%></th>
+                                    <th><%= link_to "Course Id", :sort => "course_id"%></th>
+                                    <th><%= link_to "Title", :sort => "title"%></th>
+                                    <th><%= link_to "Hours", :sort => "hours"%></th>
+                                      <th>Grade</th>
+                                    <th class="text-center"><%= link_to "Completed", :sort => "hours"%></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
                                 <tr>
-                                  <td colspan="4">
-                                    <p class="text-center text-muted">
-                                      No Courses Found...
-                                    </p>
+                                  <td>ACCT</td>
+                                  <td>210</td>
+                                  <td>Principles of Accounting I</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
                                   </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
                                 </tr>
-                                <% end %>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>211</td>
+                                  <td>Principles of Accounting II</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>BUSI</td>
+                                  <td>105</td>
+                                  <td>The World of Business</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>BUSI</td>
+                                  <td>204</td>
+                                  <td>Business Communication </td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ECON</td>
+                                  <td>212</td>
+                                  <td>Principles of Macroeconomics</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ECON</td>
+                                  <td>224</td>
+                                  <td>Business and Economics Statistics </td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+
+
+
                               </tbody>
                           </table>
                           <%= will_paginate @remaining_courses, renderer: BootstrapPagination::Rails %>
                       </div>
                     </div>
                   </div>
-                </div>
-        </div>
+                <!-- </div>
+        </div> -->
         <!-- *********************************************************************************************** -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-4">
 
             </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8"> -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-
-                    <div class="pull-right">
-
-
-                    <form class="form-inline text-center">
-                      <div class="form-group">
-                      <label for="exampleInputName2">Total Credits</label>
-                      <input type="text" class="form-control"  placeholder="3" disabled="disabled" style="max-width:50px">
-                      </div>
-                      <div class="form-group">
-                      <label for="exampleInputEmail2">GPA</label>
-                      <input type="email" class="form-control" placeholder="4.0" disabled="disabled" style="max-width:50px">
-                      </div>
-                    </form>
-                  </div>
-                  <h4>Completed Courses</h4>
+                    <h4>Major Studies</h4>
                 </div>
-                <div class="panel-body">
+                  <div class="panel-body">
+                      <div class="dataTable_wrapper">
+                          <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              <thead>
+                                  <tr>
+                                    <th><%= link_to "School", :sort => "course_id"%></th>
+                                    <th><%= link_to "Course Id", :sort => "course_id"%></th>
+                                    <th><%= link_to "Title", :sort => "title"%></th>
+                                    <th><%= link_to "Hours", :sort => "hours"%></th>
+                                      <th>Grade</th>
+                                    <th class="text-center"><%= link_to "Completed", :sort => "hours"%></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>310</td>
+                                  <td>Intermediate Accounting I</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>311</td>
+                                  <td>Intermediate Accounting II</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>320</td>
+                                  <td>Federal Taxation I</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>330</td>
+                                  <td>Cost Accounting</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>ACCT</td>
+                                  <td>420</td>
+                                  <td>Auditing</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                                <tr>
+                                  <td>MATH</td>
+                                  <td>209</td>
+                                  <td>Calculus for Business</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
+                                </tr>
+                              </tbody>
+                          </table>
+                          <%= will_paginate @remaining_courses, renderer: BootstrapPagination::Rails %>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div>
+        </div> -->
+        <!-- *********************************************************************************************** -->
+        <!-- <div class="row">
+          <div class="col-md-4">
 
+            </div>
+        <div class="col-lg-8"> -->
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4>Electives (Must Choose 1)</h4>
+              </div>
+                <div class="panel-body">
                     <div class="dataTable_wrapper">
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                  <th>School</th>
-                                  <th>Course Id</th>
-                                  <th>Title</th>
+                                  <th><%= link_to "School", :sort => "course_id"%></th>
+                                  <th><%= link_to "Course Id", :sort => "course_id"%></th>
+                                  <th><%= link_to "Title", :sort => "title"%></th>
+                                  <th><%= link_to "Hours", :sort => "hours"%></th>
                                   <th>Grade</th>
+                                  <th class="text-center"><%= link_to "Completed", :sort => "hours"%></th>
                                 </tr>
                             </thead>
                             <tbody>
-                              <% if @completed_courses.present? %>
-                              <% @completed_courses.each do |course| %>
                                 <tr>
-                                  <td><%= Course.find(course.id).school %></td>
-                                  <td><%= Course.find(course.id).number %></td>
-                                  <td><%= Course.find(course.id).title %></td>
-                                  <td><%= course.grade %></td>
+                                  <td>ACCT</td>
+                                  <td>410</td>
+                                  <td>Advanced Accounting</td>
+                                  <td>3</td>
+                                  <td>
+                                    <select class="form-control">
+                                      <option value="one">A</option>
+                                      <option value="two">B</option>
+                                      <option value="three">C</option>
+                                      <option value="four">D</option>
+                                      <option value="five">F</option>
+                                    </select>
+                                  </td>
+                                  <td class="text-center"><input type="checkbox" aria-label="..."></td>
                                 </tr>
-                              <% end %>
-                              <% else %>
-                              <tr>
-                                <td colspan="4">
-                                  <p class="text-center text-muted">
-                                    No Courses Found...
-                                  </p>
-                                </td>
-                              </tr>
-                              <% end %>
                             </tbody>
                         </table>
-                        <%= will_paginate @completed_courses, renderer: BootstrapPagination::Rails %>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- *********************************************************************************************** -->
-            </div>
-          </div>
+              <!-- </div>
+        </div> -->
+        <!-- *********************************************************************************************** -->
+
+              <!-- <div class="row"> -->
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+
+                          <div class="pull-right">
+
+
+                          <form class="form-inline text-center">
+                            <div class="form-group">
+                            <label for="exampleInputName2">Total Credits</label>
+                            <input type="text" class="form-control"  placeholder="3" disabled="disabled" style="max-width:50px">
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleInputEmail2">GPA</label>
+                            <input type="email" class="form-control" placeholder="4.0" disabled="disabled" style="max-width:50px">
+                            </div>
+                          </form>
+                        </div>
+                        <h4>Completed Courses</h4>
+                      </div>
+                      <div class="panel-body">
+
+                          <div class="dataTable_wrapper">
+                              <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                  <thead>
+                                      <tr>
+                                        <th>School</th>
+                                        <th>Course Id</th>
+                                        <th>Title</th>
+                                        <th>Grade</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    <% if @completed_courses.present? %>
+                                    <% @completed_courses.each do |course| %>
+                                      <tr>
+                                        <td><%= Course.find(course.id).school %></td>
+                                        <td><%= Course.find(course.id).number %></td>
+                                        <td><%= Course.find(course.id).title %></td>
+                                        <td class="text-center"><%= course.grade %></td>
+                                      </tr>
+                                    <% end %>
+                                    <% else %>
+                                    <tr>
+                                      <td colspan="4">
+                                        <p class="text-center text-muted">
+                                          No Courses Found...
+                                        </p>
+                                      </td>
+                                    </tr>
+                                    <% end %>
+                                  </tbody>
+                              </table>
+                              <%= will_paginate @completed_courses, renderer: BootstrapPagination::Rails %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- *********************************************************************************************** -->
+            <!-- </div> -->
+          <!-- </div> -->
